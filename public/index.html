@@ -1,0 +1,76 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+	<!-- Latest compiled and minified CSS -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="src/dist/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="src/mdb/css/mdb.min.css">  
+	<link rel="stylesheet" href="src/font-awesome-4.6.3/css/font-awesome.min.css">
+
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+	<!-- <link rel="stylesheet" href="src/dist/css/bootstrap-theme.min.css"> -->
+
+		<title>Gestionnaire de Contacts</title>
+	</head>
+
+	<body>
+
+		<div class="container-fluid" ng-controller="AppCtrl">
+			<h1 class="text-center">GESTIONNAIRE DE CONTACTS</h1>
+			<hr class="m-y-2">
+
+			<table class="table center">
+				<thead>
+					<tr>
+						<th>Nom & prénoms</th>
+						<th>Email</th>
+						<th>Téléphone</th>
+						<th>Action</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="md-form">
+						        <input type="text" id="form3" class="form-control" placeholder="Votre nom" ng-model="contact.nom">
+						    </div>
+						</td>
+						<td>
+							<div class="md-form">
+						        <input type="text" id="form3" class="form-control" placeholder="Votre email" ng-model="contact.email">
+						    </div>
+						</td>
+						<td>
+							<div class="md-form">
+						        <input type="text" id="form3" class="form-control" placeholder="Votre tél." ng-model="contact.numero">
+						    </div>
+						</td>
+						<td><button type="button" class="btn btn-primary" ng-click="addContact()">Ajouter</button></td>
+						<td><button class="btn btn-info" ng-click="updateContact()">Mettre à jour</button>&nbsp;<button class="btn btn-info" ng-click="deselect()">Reset</button></td>
+					</tr>
+					<tr ng-repeat="contact in contactList">
+						<td>{{contact.nom}}</td>
+						<td>{{contact.email}}</td>
+						<td>{{contact.numero}}</td>
+						<td><a class="teal-text" ng-click="editContact(contact._id)"><i class="fa fa-pencil-square-o"></i></a></td>
+						<td><a class="red-text" ng-click="delContact(contact._id)"><i class="fa fa-trash-o"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © Charbel OGOUGBE
+            </div>
+        </div>
+
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
+		<script src="src/angular.min.js"></script>
+		<script src="controllers/controller.js"></script>
+		<script src="src/mdb/js/mdb.min.js"></script>   
+	</body>
+
+</html>
